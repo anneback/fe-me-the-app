@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import { CountriesList } from './components/countries-list';
+import { CountriesList, Menu } from './components';
 
 const countries = [
   {
@@ -50,6 +50,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+        <Menu />
         <CountriesList countries={countries} />
       </div>
     );
