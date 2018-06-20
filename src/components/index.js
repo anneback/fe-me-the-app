@@ -2,3 +2,4 @@
 export * from './country';
 export * from './countries-list';
 export * from './menu';
+export * from './landing-page';

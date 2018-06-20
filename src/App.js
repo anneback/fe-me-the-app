@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom';
 import './App.css';
 
-import { CountriesList, Menu } from './components';
+import { CountriesList, Menu, LandingPage } from './components';
 
 const countries = [
   {
@@ -49,10 +49,19 @@ const countries = [
 class App extends Component {
   render() {
     return (
-      <div className="container">
-        <Menu />
-        <CountriesList countries={countries} />
-      </div>
+      <BrowserRouter>
+        <div className="container">
+          <Menu />
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route
+              exact
+              path="/countries"
+              render={() => <CountriesList countries={countries} />}
+            />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
