@@ -1,8 +1,9 @@
 import React from 'react';
+import './styles.css';
 
 export const Country = props => (
   <div>
     {console.log('props', props)}
-    {props.flag}, {props.alpha2Code}
+    <img width="20" src={props.flag} /> {props.name}, {props.alpha2Code}
   </div>
 );
