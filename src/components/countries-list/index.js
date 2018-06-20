@@ -1,17 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 import { Country } from '../';
-// import { api } from '../utils';
 
-export const CountriesList = ({ countries }) => (
-  <ul>
-    {countries.map(country => (
-      <li key={country.alpha2Code}>
-        <Country
-          flag={country.flag}
-          name={country.name}
-          alpha2Code={country.alpha2Code}
-        />
-      </li>
-    ))}
-  </ul>
-);
+export class CountriesList extends Component {
+  componentDidMount() {
+    this.props.fetchCountries();
+  }
+  render() {
+    const { countries } = this.props;
+    return (
+      <ul>
+        {countries.map(country => (
+          <li key={country.alpha2Code}>
+            <Country country={country} />
+          </li>
+        ))}
+      </ul>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    countries: state.countries.countries
+  };
+};
+
+const mapDispatchToProps = {
+  fetchCountries: actions.fetchCountries
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CountriesList);

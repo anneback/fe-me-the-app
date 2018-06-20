@@ -1,5 +1,6 @@
-// export { default as Header } from './header'; // if connected component
+// export { default as Page } from './page';
+export * from './page';
 export * from './country';
-export * from './countries-list';
+export { default as CountriesList } from './countries-list';
 export * from './menu';
 export * from './landing-page';

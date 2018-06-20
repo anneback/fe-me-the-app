@@ -1,9 +1,11 @@
 import React from 'react';
+//import deathstar from '../../../public/deathstar.png';
 
 export const Menu = () => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <a className="navbar-brand" href="/">
-      Navbar
+      <img width="30" src={process.env.PUBLIC_URL + 'deathstar.png'} /> Country
+      App
     </a>
     <button
       className="navbar-toggler"
@@ -16,17 +18,11 @@ export const Menu = () => (
     >
       <span className="navbar-toggler-icon" />
     </button>
-
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
           <a className="nav-link" href="/countries">
             Country list
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link disabled" href="#">
-            Disabled
           </a>
         </li>
       </ul>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom';
 import './App.css';
 
-import { CountriesList, Menu, LandingPage } from './components';
+import { Page, Menu, LandingPage, CountriesList, Country } from './components';
 
 const countries = [
   {
@@ -50,17 +50,23 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="container">
-          <Menu />
-          <Switch>
-            <Route exact path="/" component={LandingPage} />
-            <Route
-              exact
-              path="/countries"
-              render={() => <CountriesList countries={countries} />}
-            />
-          </Switch>
-        </div>
+        <Page>
+          <div className="container">
+            <Menu />
+            <Switch>
+              <Route exact path="/" component={LandingPage} />
+              <Route
+                exact
+                path="/countries"
+                render={() => <CountriesList countries={countries} />}
+              />
+              <Route
+                path="country/:name"
+                render={({ match }) => <Country country={match.params.name} />}
+              />
+            </Switch>
+          </div>
+        </Page>
       </BrowserRouter>
     );
   }
